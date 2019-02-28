@@ -1,0 +1,6 @@
+ant() { mkdir ~/ant-data/$@ || cd ~/ant-data/$@ && cd ~/ant-data/$@ && wget $(curl -s https://www.antweb.org/images.do?genus="$@" | grep thumbview.jpg | awk -F'" ' '{print$2}' | awk -F'src="' '{print$2}' | grep "_h_") ;}
+ant-d() { mkdir "$@" && cd "$@" && wget  $(curl -s https://www.antweb.org/images.do?genus="$@" | grep thumbview.jpg | awk -F'" ' '{print$2}' | awk -F'src="' '{print$2}' | grep "_d_") ;}
+aw() { cat $(curl -s https://www.antweb.org/images.do?genus="$@" | grep '<div class="name">' | awk -F'">' '{print$4}' | awk -F'</' '{print$1}') ;}
+ant-h() { mkdir "$@" && cd "$@" && wget $(curl "https://www.antweb.org/images/$@&caste=normal" | grep thumbview.jpg | awk -F'" ' '{print$2}' | awk -F'src="' '{print$2}' | grep "_h_") ;}
+ant-p() { mkdir "$@" && cd "$@" && wget $(curl "https://www.antweb.org/images.do?genus=$@&caste=normal" | grep thumbview.jpg | awk -F'" ' '{print$2}' | awk -F'src="' '{print$2}' | grep "_p_") ;}
+ant-d() { mkdir "$@" && cd "$@" && wget $(curl "https://www.antweb.org/images.do?genus=$@&caste=normal" | grep thumbview.jpg | awk -F'" ' '{print$2}' | awk -F'src="' '{print$2}' | grep "_d_") ;}
